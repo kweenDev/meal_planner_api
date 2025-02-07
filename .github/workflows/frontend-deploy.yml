@@ -2,6 +2,7 @@
 # Author: Refiloe Radebe
 # Date: 2025-02-06
 # Description: GitHub Actions workflow to deploy the React frontend to Vercel.
+
 name: Deploy Frontend to Vercel
 
 on:
@@ -31,7 +32,7 @@ jobs:
         working-directory: ./meal-planner-frontend/
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v20
+        uses: Vercel/action@v1
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
