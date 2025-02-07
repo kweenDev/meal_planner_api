@@ -53,7 +53,17 @@ update_meal_plan_model = ns_mealplanner.model('UpdateMealPlan', {
 class Register(Resource):
     @ns_auth.expect(user_model, validate=True)
     def post(self):
-        """Register a new user."""
+        """
+        Register a new user.
+        Expected JSON payload:
+        {
+        "username": "testuser",
+        "email": "test@example.com",
+        "password": "password"
+        }
+        Returns:
+            JSON response with user data and a success message.
+        """
         data = request.json
         if User.query.filter(
             (User.username == data['username']) | (User.email == data['email'])
